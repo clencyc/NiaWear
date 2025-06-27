@@ -5,10 +5,15 @@ import os
 from dotenv import load_dotenv
 import africastalking
 import models  # Import the models module
+from fastapi.middleware.cors import CORSMiddleware
+from config import configure_app
 
 load_dotenv()
 
 app = FastAPI()
+router = APIRouter()
+
+configure_app(app)
 
 username = os.getenv("AT_USERNAME")
 api_key = os.getenv("AT_API_KEY")
@@ -16,7 +21,7 @@ api_key = os.getenv("AT_API_KEY")
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
 
-@app.post("/send_sms", response_model=models.SMSResponse)
+@router.post("/send_sms", response_model=models.SMSResponse)
 def sendSms(sms_request: models.SMSRequest):
 
     welcome_sms = "Welcome to NiaWear, Your Daily Style Guide Personalized fashion tips and trending insights delivered fresh every day"
