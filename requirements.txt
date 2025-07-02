@@ -10,6 +10,7 @@ certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_174997219158
 cffi @ file:///croot/cffi_1736182485317/work
 charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1746214863626/work
 click==8.2.1
+Django==5.2.3
 dnspython==2.7.0
 fastapi==0.115.13
 filelock==3.13.1
